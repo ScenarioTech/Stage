@@ -1,0 +1,29 @@
+{
+  "name": "phase-static",
+  "version": "0.1.0",
+  "description": "A static content package for the Scenario Engine.",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^1.10.0",
+    "coffee-loader": "^0.7.2",
+    "gulp-less": "^2.0.1",
+    "gulp-rename": "^1.2.0",
+    "jade-loader": "^0.7.0",
+    "less-plugin-clean-css": "^1.4.0",
+    "webpack": "^1.4.15"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scenario",
+    "engine",
+    "static",
+    "media"
+  ],
+  "author": "Andrew Sengul",
+  "license": "Apache 2.0"
+}

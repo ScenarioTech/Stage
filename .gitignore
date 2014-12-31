@@ -1,0 +1,11 @@
+# Scenario Stage v. 0.2
+
+# All stage source files except demos
+src/*
+!src/demo*
+
+# All stage output files
+out/*
+
+# Build Files
+node_modules/
