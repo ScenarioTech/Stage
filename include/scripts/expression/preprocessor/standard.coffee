@@ -11,6 +11,9 @@ module.exports = (expression, params) ->
             exp.template = exp.template params.template.params
 
         if params.template
+            if params.template.plugins and typeof params.template.plugins.loader is 'function' and params.template.plugins.items.length > 0
+                exp.template = params.template.plugins.loader exp.template, params.template.plugins.items, params.template.plugins.params
+
             if params.template.meta and typeof params.template.meta.method is 'function'
                 exp.template = params.template.meta.method exp.template, params.template.meta.params
 

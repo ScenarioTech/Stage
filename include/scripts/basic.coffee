@@ -1,13 +1,17 @@
-curtainExpr = require __dirname + "/expression/curtain-standard"
-elementExpr = require __dirname + "/expression/element-standard"
-mediaExpr = require __dirname + "/expression/media-standard"
-expressionsPrepro = require  __dirname + "/expression/preprocessor/standard"
+pluginLoader = require __dirname + '/expression/plugins/loader/standard'
 
-commonMetaTemplate = require __dirname + "/expression/meta/template/basic"
-transitionMetaEffect =  require __dirname + "/expression/meta/effect/transition-basic"
+curtainExpr = require __dirname + '/expression/curtain-standard'
+elementExpr = require __dirname + '/expression/element-standard'
+mediaExpr = require __dirname + '/expression/media-standard'
+expressionsPrepro = require __dirname + '/expression/preprocessor/standard'
 
-randomSelector =  require __dirname + "/selector/random"
-transConfig = require __dirname + "/transition/config/standard"
+commonMetaTemplate = require __dirname + '/expression/meta/template/basic'
+transitionMetaEffect =  require __dirname + '/expression/meta/effect/transition-basic'
+
+nextArrowGlyphPlugin = require __dirname + '/expression/plugins/template/glyph-arrow-next'
+
+randomSelector =  require __dirname + '/selector/random'
+transConfig = require __dirname + '/transition/config/standard'
 
 module.exports =
     element_elCurtain: expressionsPrepro curtainExpr, {
@@ -29,6 +33,10 @@ module.exports =
         template:
             meta:
                 method: commonMetaTemplate
+            plugins:
+                loader: pluginLoader
+                items: [ nextArrowGlyphPlugin ]
+                params: null
     }
     
     media_images: expressionsPrepro mediaExpr, {

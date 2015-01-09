@@ -1,0 +1,69 @@
+// A layout patterned after a 35mm motion picture film frame, with an image presented in the upper 2/3 of the frame,
+// mirroring the proportions of a CinemaScope film frame with the text in the space below
+
+.compo {
+    ol {
+        list-style-type: none;
+    }
+
+    .element {
+        font-size: 1.16em;
+        line-height: 1.4em;
+        height: 100%;
+        
+        .image {
+            background-repeat: no-repeat;
+            background-position: top center;
+        }
+        
+        p {
+            margin: 0 0 0.5em 0;
+        }
+
+        ol li {
+            cursor: pointer;
+            padding: 0 0 0.2em 0;
+        }
+    }
+
+    .image-holder div.image {
+        height: 67.4%;
+        background-size: 100% auto;
+    }
+
+    .dialog-holder {
+        bottom: 0;
+        height: 300px;
+        left: 0;
+        position: absolute;
+        overflow: hidden; // set overflow to hidden since Perfect Scrollbar is in use
+        width: 100%;
+        z-index: 500;        
+    }
+
+    .dialog {
+        padding: 0 0 0 40px;
+        width: 95%;
+    
+        input {
+            //border-radius: 6px;
+            font-size: 1.2em;
+            margin: 0 0.3em 0 1em;
+            width: 75%;
+            padding: 0.1em 0.2em;
+        }
+        
+        button {
+            font-size: 1.6em;
+            padding: 0.1em;
+        }
+    }
+    
+    p {
+        margin: 1.25em 1.25em 0.5em;
+    }
+    
+    ol {
+        margin: 0 1.25em 1.25em;
+    }
+}

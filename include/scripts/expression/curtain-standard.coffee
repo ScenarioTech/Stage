@@ -1,16 +1,16 @@
 module.exports =
     standard:
         template: """
-                <div style="width: 100%; height: 100%"> 
+                <div style="width: 100%; height: 100%" ng-style="autofit()">
                     <svg 
                        xmlns:dc="http://purl.org/dc/elements/1.1/" 
                        xmlns:cc="http://creativecommons.org/ns#" 
                        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
                        xmlns:svg="http://www.w3.org/2000/svg" 
                        xmlns="http://www.w3.org/2000/svg" 
-                       x="0px" 
-                       y="0px" 
-                       width="1680" 
+                       x="0px"
+                       y="0px"
+                       width="1680"
                        height="1050"
                        style="display: none;">
                        <defs>
@@ -134,11 +134,15 @@ module.exports =
 
                     fxParams.element.find("svg").css 'display', 'block'
                     
+                    # rotate loading band at a steady rate
+                    #fxParams.element.find("circle.loading-band").css
+                    #    cx="840.5" 
+                    #     cy="525.5" 
                     # animate circular loading indicator
-                    fxParams.element.find("circle.loading-band").css 'stroke-dashoffset', (2549.99 - (2549.99 * fxParams.transData.curtain.appeared))
+                    fxParams.element.find("circle.loading-band").css 'stroke-dashoffset', (2549.99 - (2549.99 * fxParams.transData.portion))
                     
                     # animate dashed lettering stroke, another indicator of load progress and time passage
-                    fxParams.element.find("g.text-loading path").css 'stroke-dasharray', (24 * fxParams.transData.curtain.appeared ) + "," + (6 - (6 * fxParams.transData.curtain.appeared ))
+                    fxParams.element.find("g.text-loading path").css 'stroke-dasharray', (24 * fxParams.transData.portion ) + "," + (6 - (6 * fxParams.transData.portion ))
                     fxParams.element.find("g.text-loading path").css 'stroke-dashoffset', (fxParams.transData.time / 400)
 
                     #console.log (8 - (8 * fxParams.transData.curtain.appeared ))

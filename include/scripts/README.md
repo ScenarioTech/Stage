@@ -17,3 +17,7 @@ Contains functions that are used to select from a number of options in the case 
 ### transition/
 
 Contains scripts pertaining to stage transition effects.
+
+### vendor/
+
+Contains scripts from external vendors.

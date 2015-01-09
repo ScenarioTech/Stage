@@ -1,15 +1,15 @@
 .scenario-stage-holder {
 	width: 100%;
 	height: 100%;
-	background: #000;
+	//background: #000;
 }
+// Basic scenario stage styles.
 
 #scenario-curtain {
     > div {
         position: absolute;
         z-index: 10000;
     }
-
 }
 
 #scenario-stage.clickable {
@@ -23,28 +23,6 @@
 	overflow: hidden;
     z-index: 10000;
 
-    ol {
-        list-style-type: none;
-    }
-
-    .element {
-        font-size: 1.16em;
-        
-        .image {
-            background-repeat: no-repeat;
-            background-position: top center;
-        }
-        
-        p {
-            margin: 0 0 0.5em 0;
-        }
-
-        ol li {
-            cursor: pointer;
-            padding: 0 0 0.2em 0;
-        }
-    }
-
     .media_images {
         width: 100%;
         height: 100%;
@@ -57,7 +35,6 @@
         background-position: top left;
     }
 
-    .element .image-holder .image, 
     .media-holder .image {
         height: 100%;
         width: 100%;
@@ -66,5 +43,7 @@
 }
 
 // Hide media assets container
-#scenario-media-assets { display: none; }
+#scenario-media-assets { 
+    display: none; 
+}
 

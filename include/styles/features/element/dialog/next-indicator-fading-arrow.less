@@ -1,0 +1,89 @@
+// A flashing arrow feature to indicate when a user may click to advance to the next dialog cue
+
+@-webkit-keyframes cf3FadeInOut {
+    0% {
+        opacity:0.6;
+    }
+    30% {
+        opacity:0.6;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+@-moz-keyframes cf3FadeInOut {
+    0% {
+        opacity:0.6;
+    }
+    30% {
+        opacity:0.6;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+@-o-keyframes cf3FadeInOut {
+    0% {
+        opacity:0.6;
+    }
+    30% {
+        opacity:0.6;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+@keyframes cf3FadeInOut {
+    0% {
+        opacity:0.6;
+    }
+    30% {
+        opacity:0.6;
+    }
+    100% {
+        opacity:0;
+    }
+}
+
+.element {
+    .dialog svg.feature-glyphs {
+        position: absolute;
+        z-index: -1;
+        right: 30px;
+        bottom: 0;
+    }
+
+    .dialog svg.feature-glyphs path {
+        display: none;
+    }
+
+    .dialog.paused svg.feature-glyphs #next-arrow {
+        display: block;
+        -webkit-animation-name: cf3FadeInOut;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-duration: 4s;
+        -webkit-animation-direction: alternate;
+
+        -moz-animation-name: cf3FadeInOut;
+        -moz-animation-timing-function: ease-in-out;
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-duration: 4s;
+        -moz-animation-direction: alternate;
+    
+        -o-animation-name: cf3FadeInOut;
+        -o-animation-timing-function: ease-in-out;
+        -o-animation-iteration-count: infinite;
+        -o-animation-duration: 4s;
+        -o-animation-direction: alternate;        
+
+        animation-name: cf3FadeInOut;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 4s;
+        animation-direction: alternate;
+    }
+}

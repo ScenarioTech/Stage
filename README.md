@@ -4,14 +4,6 @@
 
 <!-- /TITLE -->
 
-
-<!-- BADGES/ -->
-
-<!-- [![Build Status](http://img.shields.io/travis-ci/bevry/docpad.png?branch=master)](http://travis-ci.org/bevry/docpad "Check this project's build status on TravisCI") -->
-
-<!-- /BADGES -->
-
-
 This is a tool used to build stages for use with interactive scenarios created using the Scenario Engine. A scenario stage is the medium through which scenario content is presented to users. If you're working on a scenario, you'll often want to create a stage to accompany it and convey your vision to the people who experience your scenario.
 
 ## The First Step: Building A Demo Stage
