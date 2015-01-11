@@ -10,7 +10,11 @@ Many expressions are singular, but some have multiple sub-expressions, each with
 
 ### meta/
 
-Contains meta-templates and meta-effects. These functions are like wrappers for templates and effects, respectively. Meta-templates often take the form of HTML tags that wrap the HTML comprising the template, while meta-effects are functions that wrap around the main effect functions.
+Contains meta-templates and meta-effects. These functions are like wrappers for templates and effects, respectively. Meta-templates often take the form of HTML strings that wrap around the HTML comprising the template, while meta-effects are functions that wrap the main effect functions.
+
+### plugins/
+
+Contains methods and objects that can be attached to templates or effects in a modular fashion.
 
 ### preprocessor/
 

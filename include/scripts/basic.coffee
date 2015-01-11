@@ -1,3 +1,8 @@
+# Stage Constructor Script:
+# Basic
+#
+# A boilerplate top-level stage constructor script. Includes common expression components and builds the template and effect.
+
 pluginLoader = require __dirname + '/expression/plugins/loader/standard'
 
 curtainExpr = require __dirname + '/expression/curtain-standard'
@@ -36,7 +41,7 @@ module.exports =
             plugins:
                 loader: pluginLoader
                 items: [ nextArrowGlyphPlugin ]
-                params: null
+                params: {}
     }
     
     media_images: expressionsPrepro mediaExpr, {

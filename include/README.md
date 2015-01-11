@@ -8,7 +8,7 @@ Here you will find directories containing scripts and styles that serve as the b
 
 ### reference/
 
-Contains scripts and styles linked from src/ folders. These scripts and styles are typically simple, meant to form a link between the src/ folders and resources in the scripts/ and styles/ folders described below.
+Contains scripts and styles that are intended to serve as aggregations of resources from the scripts/ and styles/ directories. These scripts make it easy for designers to include common sets of components in their stages.
 
 ### scripts/
 
@@ -20,4 +20,4 @@ Contains LESS stylesheet files that are linked and compiled into CSS. These styl
 
 ### vendor/
 
-This directory contains whatever vendor-provided files are included in the scenario stage files.
+This directory contains whatever vendor-provided files are included with the scenario stage files. Often, these files are symlinks to files from modules installed via NPM or other resource packaging services in the root directory.

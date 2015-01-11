@@ -1,3 +1,7 @@
+# Gulpfile for development and production builds
+#
+# The production build "gulp pro" is compressed, the development build "gulp dev" isn't
+
 gulp = require 'gulp'
 fs = require 'fs'
 
@@ -73,20 +77,3 @@ for x in [0..(stageNames.length - 1)]
         
     if x is (stageNames.length - 1)
         runBuild()
-
-###
-
-        #webfont: wfConfig
-
-        if fs.existsSync rootPath + "/" + stageNames[x] + "/webfont/"
-            wfConfig[stageNames[x]] = 
-                src: rootPath + "/" + stageNames[x] + "/webfont/icons/*.svg"
-                dest: rootPath + "/" + stageNames[x] + "/style/icons.svg"
-                options:
-                    font: 'icons'
-                    hashes: true
-                    styles: 'font,icon'
-                    types: 'eot,woff,ttf'
-                    order: 'eot,woff,ttf,svg'
-
-###

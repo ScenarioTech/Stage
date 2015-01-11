@@ -1,6 +1,13 @@
+# Expression Template:
+# Standard Stage Element
+#
+# A basic stage element template. Includes a media container class to hold cue images and a dialog box.
+# The effect manifests a scrollbar in the dialog box if there is too much content to fit at once.
+
 module.exports =
     template: """
     <div ng-style="autofit()">
+        <!-- hook.head -->
         <div ng-repeat="(emKey, emValue) in entity.aspects.prime.components.media" ng-class="{ 'image-holder' : emValue.subtype === 'images' }">
             <div
                 ng-if="emValue.subtype === 'images'"
@@ -11,6 +18,8 @@ module.exports =
 
         <div class="dialog-holder">
             <div class="dialog" ng-class="{ paused: state.paused }">
+                <!-- hook.dialogHead -->
+                
                 <p class="statement" ng-if="entity.content.prime.features.text.dialog">
                     <span ng-if="compoConfig.properties.displayName">
                         <span ng-bind-html="compoConfig.properties.displayName"></span>:
@@ -29,14 +38,15 @@ module.exports =
                     </li>
                 </ol>
                 
-                <!-- GLYPHS -->
+                <!-- hook.dialogFoot -->
             </div>
         </div>
+        <!-- hook.foot -->
     </div>
     """
 
     effect: () ->
-        $('.dialog-holder').perfectScrollbar { suppressScrollX: true }
+        $('.dialog-holder').perfectScrollbar { suppressScrollX: true, includePadding: true }
         
         # always scroll the element to the top when the dialog content is refreshed
         $('.dialog-holder').scrollTop 0

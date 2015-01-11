@@ -1,9 +1,9 @@
 /*
  * Layout: 
- * Basic Film
+ * Basic Inset
  *
- * A stage layout patterned after a 35mm motion picture film frame. The cue image is presented in the upper 2/3 of the frame,
- * mirroring the proportions of a CinemaScope film frame. The text and interface appear in the space below.
+ * A layout that displays cue images as a page-filling background, with the text and interface placed
+ * in a window overlaid on that background.
  *
 */
 
@@ -33,23 +33,24 @@
     }
 
     .image-holder div.image {
-        height: 67.4%;
+        height: 100%;
         background-size: 100% auto;
     }
 
     .dialog-holder {
-        bottom: 0;
-        height: 300px;
-        left: 0;
+        height: 32%;
+        bottom: 5%;
+        left: 4%;
         position: absolute;
-        overflow: hidden; // set overflow to hidden since Perfect Scrollbar is in use
-        width: 100%;
-        z-index: 500;        
+        overflow: hidden; // set overflow to hidden because Perfect Scrollbar is in use
+        padding: 16px 2%;
+        width: 88%;
+        z-index: 500;   
     }
 
     .dialog {
-        padding: 0 0 0 40px;
-        width: 95%;
+        padding: 8px;
+        width: 100%;
     }
     
     p {

@@ -1,3 +1,9 @@
+# Expression Template:
+# Standard Curtain Element
+#
+# An all-purpose curtain element. Features an SVG loading graphic that changes according to the loading statuas.
+# The effect manifests changes in the loading graphic
+
 module.exports =
     standard:
         template: """

@@ -1,0 +1,58 @@
+/*
+ * The first set of includes points to styles in the include/references directory.
+ * These reference files group together material from the include/styles directory for easy inclusion by stage designers.
+ *
+*/
+
+@import '../../include/reference/styles/base';
+@import '../../include/reference/styles/skinsets/basic';
+@import '../../include/reference/styles/layout/basic-inset';
+
+
+/*
+ * The second set of includes point directly into the include/styles directory.
+ * These are styles for specific stage components - in this case, the typeface, the 
+ *
+*/
+
+@import '../../include/styles/typefaces/georgia-basic';
+@import '../../include/styles/features/element/dialog/next-indicator-fading-arrow';
+
+/*
+ * Lastly, here's a vendor-provided style for the scrollbar that most dialog elements use when their content is too big to show all at once.
+ *
+*/
+
+@import '../../include/styles/vendor/perfect-scrollbar';
+
+.scenario-stage-holder {
+    background: #000;
+}
+
+#scenario-stage {
+    .typeface-georgia-basic; // the stage uses the Georgia font in large type as specified by this type style
+
+    // stage-specific styles for the SVG arrow glyph
+    svg.feature-glyphs path#next-arrow {
+        stroke-width: 8;
+        fill: none;
+    }
+
+    .element-main {
+        .skin-bronze; // the element proper uses the dark "bronze" skin
+
+        div.image {
+            box-shadow: 0 0 42px #000;
+        }
+        
+        .dialog-holder {
+            .skin-khaki; // the dialog container within the element uses the bright "khaki" skin
+            
+            // border styles and a drop shadow for the dialog holder
+            border-radius: 24px;
+            border-width: 6px;
+            border-style: solid;
+            box-shadow: 4px 4px 0 rgba(64,64,64,0.4);
+        }
+    }
+}
