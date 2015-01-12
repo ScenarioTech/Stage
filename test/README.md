@@ -30,7 +30,7 @@ Tests for the stage transition configurations, verifying that the configuration 
 
 ## Batch Test Suites
 
-These tests are applied to all files matching a given path pattern. They are useful in that they will be automatically applied 
+These tests are applied to all files matching a given path pattern. They are useful in that they will be automatically applied to all files in a particular location, which are meant to be all of a kind. You can test the basic properties of your newly created resources without having to write a line of code yourself.
 
 ### meta-template-batch.coffee
 
