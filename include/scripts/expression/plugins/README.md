@@ -12,7 +12,7 @@ Contains effect plugins. Effect plugins generally take the form of functions tha
 
 ### loader/
 
-Contains loader methods used to attach plugins to templates and effects.
+Contains loader methods used to attach plugins to templates and effects. Not surprisingly, these two loader types are collected in directories named **template/** and **effect/**.
 
 ### template/
 

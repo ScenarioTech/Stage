@@ -4,7 +4,7 @@
 
 <!-- /TITLE -->
 
-In this directory, the CoffeeScript and Javascript files (if any) are top-level expression models. They include basic expression models from the expression/ folder and combine them with features included from the other folders.
+In this directory, the CoffeeScript and Javascript files (if any) are top-level expression models. They include basic expression models from the **expression/** folder and combine them with features included from the other folders.
 
 ### expression/
 

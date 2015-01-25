@@ -8,7 +8,7 @@ Here you will find directories containing scripts and styles that serve as the b
 
 ### reference/
 
-Contains scripts and styles that are intended to serve as aggregations of resources from the scripts/ and styles/ directories. These scripts make it easy for designers to include common sets of components in their stages.
+Contains scripts and styles that are intended to serve as convenient points of access to resources from the scripts/ and styles/ directories. These scripts make it easy for designers to include common sets of expressions in their stages.
 
 ### scripts/
 

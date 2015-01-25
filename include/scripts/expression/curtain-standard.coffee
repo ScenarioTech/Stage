@@ -1,34 +1,156 @@
+###
 # Expression Template:
 # Standard Curtain Element
-#
+# 
 # An all-purpose curtain element. Features an SVG loading graphic that changes according to the loading statuas.
 # The effect manifests changes in the loading graphic
+# 
+###
 
 module.exports =
     standard:
         template: """
+                <style type="text/css">
+                    .go-clockwise {
+                      -webkit-animation: clockwise 9s infinite linear;
+                      -moz-animation: clockwise 9s infinite linear;
+                    }
+
+                    .go-counter-clockwise {
+                      -webkit-animation: counter-clockwise 9s infinite linear;
+                      -moz-animation: counter-clockwise 9s infinite linear;
+                    }
+                    
+                    .loading-band {
+                        transform-origin: 0 0 0;
+                    }
+
+                    @-webkit-keyframes clockwise {
+                      0% {
+                        -webkit-transform: rotate(0deg);
+                        -moz-transform: rotate(0deg);
+                        -ms-transform: rotate(0deg);
+                        -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+
+                      100% {
+                        -webkit-transform: rotate(360deg);
+                        -moz-transform: rotate(360deg);
+                        -ms-transform: rotate(360deg);
+                        -o-transform: rotate(360deg);
+                        transform: rotate(360deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+                    }
+
+                    @-moz-keyframes clockwise {
+                      0% {
+                        -webkit-transform: rotate(0deg);
+                        -moz-transform: rotate(0deg);
+                        -ms-transform: rotate(0deg);
+                        -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+
+                      100% {
+                        -webkit-transform: rotate(360deg);
+                        -moz-transform: rotate(360deg);
+                        -ms-transform: rotate(360deg);
+                        -o-transform: rotate(360deg);
+                        transform: rotate(360deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+                    }
+
+                    @-webkit-keyframes counter-clockwise {
+                      0% {
+                        -webkit-transform: rotate(0deg);
+                        -moz-transform: rotate(0deg);
+                        -ms-transform: rotate(0deg);
+                        -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+
+                      100% {
+                        -webkit-transform: rotate(-360deg);
+                        -moz-transform: rotate(-360deg);
+                        -ms-transform: rotate(-360deg);
+                        -o-transform: rotate(-360deg);
+                        transform: rotate(-360deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+                    }
+
+                    @-moz-keyframes counter-clockwise {
+                      0% {
+                        -webkit-transform: rotate(0deg);
+                        -moz-transform: rotate(0deg);
+                        -ms-transform: rotate(0deg);
+                        -o-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+
+                      }
+
+                      100% {
+                        -webkit-transform: rotate(-360deg);
+                        -moz-transform: rotate(-360deg);
+                        -ms-transform: rotate(-360deg);
+                        -o-transform: rotate(-360deg);
+                        transform: rotate(-360deg);
+                        -webkit-transform-origin: center center;
+                        -moz-transform-origin: center center;
+                        transform-origin: center center;
+                      }
+                    }                
+                </style>
                 <div style="width: 100%; height: 100%" ng-style="autofit()">
                     <svg 
-                       xmlns:dc="http://purl.org/dc/elements/1.1/" 
-                       xmlns:cc="http://creativecommons.org/ns#" 
-                       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
-                       xmlns:svg="http://www.w3.org/2000/svg" 
-                       xmlns="http://www.w3.org/2000/svg" 
-                       x="0px"
-                       y="0px"
-                       width="1680"
-                       height="1050"
-                       style="display: none;">
-                       <defs>
-                         <filter id="loadingTextHighlightFilter"><feGaussianBlur id="gbFilter01" stdDeviation="8" /></filter>
-                       </defs> 
-                      <circle class="loading-band"
-                         cx="840.5" 
-                         cy="525.5" 
-                         r="400" 
-                         style="fill:none;stroke:#ffffff;stroke-width:64;stroke-dasharray:2550;stroke-dashoffset:2549.99" 
-                         id="circle4" 
-                         transform="matrix(0,-1,1,0,315,1366)" />
+                        xmlns="http://www.w3.org/2000/svg" 
+                        x="0px"
+                        y="0px"
+                        width="1680"
+                        height="1050"
+                        style="display: none;"
+                    >
+                        <defs>
+                            <filter id="loadingTextHighlightFilter"><feGaussianBlur id="gbFilter01" stdDeviation="8" /></filter>
+                        </defs> 
+                        <g class="loading-band-outer-holder" style="transform: translate(840.5px, 525.5px)">
+                            <g class="loading-band-inner-holder go-clockwise">
+                                <circle class="loading-band"
+                                    cx="840.5" 
+                                    cy="525.5" 
+                                    r="400" 
+                                    style="fill:none;stroke:#ffffff;stroke-width:64;stroke-dasharray:2550;stroke-dashoffset:2549.99;transform: translate(-840.5px, -525.5px)" 
+                                    id="circle4" 
+                                />
+                            </g>
+                        </g>
                       <circle class="outer-band"
                          id="circle3016"
                          style="fill:none;stroke:#ffffff;stroke-width:8"
@@ -137,28 +259,25 @@ module.exports =
         effect:
             generate: (params) ->
                 fx = (fxParams) ->
+                    if params and params.hooks and typeof params.hooks.start is 'function'
+                        params.hooks.start fxParams
 
                     fxParams.element.find("svg").css 'display', 'block'
                     
-                    # rotate loading band at a steady rate
-                    #fxParams.element.find("circle.loading-band").css
-                    #    cx="840.5" 
-                    #     cy="525.5" 
-                    # animate circular loading indicator
+                    # animate the drawn portion of the loading band proportionate to the portion of loading complete
                     fxParams.element.find("circle.loading-band").css 'stroke-dashoffset', (2549.99 - (2549.99 * fxParams.transData.portion))
-                    
+
                     # animate dashed lettering stroke, another indicator of load progress and time passage
                     fxParams.element.find("g.text-loading path").css 'stroke-dasharray', (24 * fxParams.transData.portion ) + "," + (6 - (6 * fxParams.transData.portion ))
-                    fxParams.element.find("g.text-loading path").css 'stroke-dashoffset', (fxParams.transData.time / 400)
+                    fxParams.element.find("g.text-loading path").css 'stroke-dashoffset', (fxParams.transData.time / 240)
 
-                    #console.log (8 - (8 * fxParams.transData.curtain.appeared ))
-                    #document.getElementById("gbFilter01").setAttribute 'stdDeviation', (8 - (8 * fxParams.transData.curtain.appeared ))
-                    #fxParams.element.find("#gbFilter01").attr 'stdDeviation', (8 - (8 * fxParams.transData.portion ))
+                    document.getElementById("gbFilter01").setAttribute 'stdDeviation', (12 - (12 * fxParams.transData.portion ))
                     if fxParams.transData.completed >= fxParams.transData.total
                         fxParams.element.find("g.text-complete").css 'display', 'block'
-                        #fxParams.element.find("g.text-loading path").css 'fill', '#ffffff'
                     
-                    #fxParams.element.find("svg").css('background', "rgba(" + Math.floor(256 * fxParams.transData.curtain.appeared) + ",0,0," + (1 - transData.curtain.risen) + ")");
                     fxParams.element.find("svg").css 'opacity', (fxParams.transData.curtain.appeared - fxParams.transData.curtain.risen)
+
+                    if params and params.hooks and typeof params.hooks.end is 'function'
+                        params.hooks.end fxParams
                 fx
 

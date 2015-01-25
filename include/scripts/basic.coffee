@@ -1,7 +1,10 @@
-# Stage Constructor Script:
+###
+# Stage Build Script:
 # Basic
-#
-# A boilerplate top-level stage constructor script. Includes common expression components and builds the template and effect.
+# 
+# A typical top-level stage build script. Includes common expression components and builds the template and effect for each expression.
+# 
+###
 
 pluginLoader = require __dirname + '/expression/plugins/loader/standard'
 

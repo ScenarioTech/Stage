@@ -23,4 +23,3 @@ for temp in files
                 
                 it '...that returns a string', ->
                     templateOutput[temp].should.be.a 'string'
-

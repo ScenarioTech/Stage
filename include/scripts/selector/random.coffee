@@ -1,5 +1,13 @@
-# fetch a random visualizer
+###
+# Sub-Expression Selector:
+# Random
+# 
+# This selector picks a random member of an array or object.
+# 
+###
 
-module.exports = (exps, params) ->
-    visKeys = Object.keys exps
-    return exps[visKeys[Math.floor(Math.random() * visKeys.length)]]
+# A selector may contain a (params) argument after (ops) but none is needed here
+
+module.exports = (ops) ->
+    opKeys = Object.keys ops
+    return ops[opKeys[Math.floor(Math.random() * opKeys.length)]]

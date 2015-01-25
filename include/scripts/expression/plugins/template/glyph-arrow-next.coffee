@@ -1,10 +1,15 @@
+###
 # Template Plugin:
 # Glyph - Next Arrow
-#
+# 
 # A SVG glyph arrow meant to indicate that the user is free to move forward to the next cue
+# 
+###
 
-module.exports = (template, params) ->
-    params.templateHooks.dialogFoot += """
+# A template plugin like this may contain (template, params) arguments but none are needed here.
+
+module.exports = ->
+    """
     <svg
         width="210"
         height="180"

@@ -62,7 +62,7 @@ runBuild = () ->
             }
             .pipe gulp.dest outPath
 
-        gulp.src './src/**/stage.less'
+        gulp.src sourcePath + '/**/stage.less'
             .pipe less {
                 plugins: [ cleanCss ]
             }

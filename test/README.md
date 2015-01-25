@@ -4,7 +4,7 @@
 
 <!-- /TITLE -->
 
-This directory contains unit test scripts for the stage constructor. They are described in more detail below.
+This directory contains unit test scripts for the stage constructor. They are described in greater detail below.
 
 
 ## Discrete Test Suites
@@ -14,6 +14,14 @@ These tests are applied to specified resources within the stage builder system.
 ### expression-preprocessor.coffee
 
 Tests for the expression preprocessor. Meant to verify that the preprocessor correctly derives singular expressions from multiplexed expressions and applies meta-templates, meta-effects and plugins to the templates and effects found within expressions.
+
+### plugin-loader-template.coffee
+
+Tests for template plugin loaders, used to insert plugin template strings into expression templates.
+
+### plugin-loader-effect.coffee
+
+Tests for effect plugin loaders, used to attach modular plugin functions to effect functions.
 
 ### meta-effects-common.coffee
 

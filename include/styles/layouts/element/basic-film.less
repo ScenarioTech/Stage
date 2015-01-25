@@ -39,7 +39,7 @@
 
     .dialog-holder {
         bottom: 0;
-        height: 300px;
+        height: 30%;
         left: 0;
         position: absolute;
         overflow: hidden; // set overflow to hidden since Perfect Scrollbar is in use
@@ -60,3 +60,28 @@
         margin: 0 1.25em 1.25em;
     }
 }
+
+@media (max-width: 800px) and (min-width: 600px) {
+    .stage-layout-basic-film {
+        .image-holder div.image {
+            height: 62%;
+        }
+        
+        .dialog-holder {
+            height: 35%;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .stage-layout-basic-film {
+        .image-holder div.image {
+            height: 55%;
+        }
+        
+        .dialog-holder {
+            height: 42%;
+        }
+    }
+}
+

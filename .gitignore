@@ -1,4 +1,4 @@
-# Scenario Stage v. 0.2
+# Scenario Stage v. 0.4
 
 # All stage source files except demos
 src/*
@@ -9,3 +9,5 @@ out/*
 
 # Build Files
 node_modules/
+
+include/scripts/expression/plugins/loader/effect

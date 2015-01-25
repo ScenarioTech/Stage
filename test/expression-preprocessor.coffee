@@ -35,7 +35,7 @@ sampleExpressions =
 
 expPreprocessor = require '../include/scripts/expression/preprocessor/standard'
 
-describe 'Preprocessor: The object returned by the preprocessor', ->
+describe 'Preprocessor.Standard: The object returned by the preprocessor', ->
     expression = 
         template: '<div>Test content.</div>'
         effect:
@@ -44,11 +44,9 @@ describe 'Preprocessor: The object returned by the preprocessor', ->
     processed = expPreprocessor expression, {}
     processed.setupEffect utils.setupEffectSampleParams.data, utils.setupEffectSampleParams.element
 
-    # testing the basic output of the preprocessor
     it 'should be an object', ->
         processed.should.be.a 'object'
 
-    # testing the basic output of the preprocessor
     it 'should have a template property', ->
         processed.should.have.property 'template'
 
@@ -79,7 +77,7 @@ describe 'Preprocessor: The object returned by the preprocessor', ->
     it '...which contains the second property passed to setupEffect', ->
         processed.effectParams.element.should.equal 'Arbitrary Element'
 
-describe 'Preprocessor: A preprocessed object with a meta-template and a meta-effect', ->
+describe 'Preprocessor.Standard: A preprocessed object with a meta-template and a meta-effect', ->
     expression = 
         template: '<div>Test content.</div>'
         effect:
@@ -102,7 +100,7 @@ describe 'Preprocessor: A preprocessed object with a meta-template and a meta-ef
         processed2.effect().should.equal 'Meta-effect: Testing.'
 
 
-describe 'Preprocessor: A preprocessed object created from an expression with multiple sub-expressions', ->
+describe 'Preprocessor.Standard: A preprocessed object created from an expression with multiple sub-expressions', ->
     expression =
         first:
             template: '<div>Test content.</div>'
@@ -128,10 +126,10 @@ describe 'Preprocessor: A preprocessed object created from an expression with mu
                 expKeys = Object.keys exps
                 exps[expKeys[1]]
     }
+    
     processed4 = expPreprocessor expression, {}
     processed5 = expPreprocessor expression2, {}
 
-    # testing the basic output of the preprocessor
     it 'should be an object', ->
         processed3.should.be.a 'object'
     
@@ -144,7 +142,7 @@ describe 'Preprocessor: A preprocessed object created from an expression with mu
     it 'should return the expression as the sub-expression if for some reason there is only one sub-expression', ->
         processed5.template.should.equal '<div>Test content.</div>'
 
-describe 'Preprocessor: A preprocessed object created from an expression with a template-generating function', ->
+describe 'Preprocessor.Standard: A preprocessed object created from an expression with a template-generating function', ->
     expression =
         template: (params) ->
             "<div>#{params.test}</div>"
@@ -155,7 +153,6 @@ describe 'Preprocessor: A preprocessed object created from an expression with a 
                 test: 'Generated Template Content'
     }
 
-    # testing the basic output of the preprocessor
     it 'should be an object', ->
         processedEffectGen.should.be.a 'object'
     
@@ -163,7 +160,7 @@ describe 'Preprocessor: A preprocessed object created from an expression with a 
         processedEffectGen.template.should.be.a 'string'
         processedEffectGen.template.should.equal "<div>Generated Template Content</div>"
 
-describe 'Preprocessor: A preprocessed object created from an expression with an effect generator', ->
+describe 'Preprocessor.Standard: A preprocessed object created from an expression with an effect generator', ->
     expression =
         template: '<div>Test content.</div>'
         effect:
@@ -177,10 +174,54 @@ describe 'Preprocessor: A preprocessed object created from an expression with an
                 test: 'Generator Test'
     }
 
-    # testing the basic output of the preprocessor
     it 'should be an object', ->
         processedEffectGen.should.be.a 'object'
 
     it 'should return an object with an effect property modified by the "generate" property of the prototype\'s "effect" property', ->
         processedEffectGen.effect.should.be.a 'function'
         processedEffectGen.effect().should.equal 'Testing: Generator Test'
+
+describe 'Preprocessor.Standard: When the preprocessor receives an expression with a template and a template plugin, it', ->
+
+    expression =
+        template: '<div>Test content.</div>'
+        effect: 
+            generate: (params) ->
+                test = (testParams) ->
+                    append = if params.testParam then params.testParam else ""
+                    "Hello " + append
+
+                test
+
+    templatePluginLoader = (item, plugins, params) ->
+        for thisPlugin in plugins
+            item = thisPlugin item, params
+
+    testTemplatePlugin = (template, params) ->
+        template + "<append>#{params.test}</append>"
+        
+    effectPluginLoader = (item, plugins, params) ->
+        for thisPlugin in plugins
+            thisPlugin params
+
+    testEffectPlugin = (params) ->
+        params.parentParams.testParam = params.test
+
+    processedEffectGen = expPreprocessor expression, {
+        template:
+            plugins:
+                loader: templatePluginLoader
+                hooks: [ testTemplatePlugin ]
+                params: { test: 1 }
+        effect:
+            plugins:
+                loader: effectPluginLoader
+                hooks: [ testEffectPlugin ]
+                params: { test: 2 }
+    }
+
+    it 'it should return a template object modified according to the plugins and the plugin loader', ->
+        processedEffectGen.template[0].should.equal '<div>Test content.</div><append>1</append>'
+       
+    it 'it should return an effect object modified according to the plugins and the plugin loader', ->
+        processedEffectGen.effect().should.equal 'Hello 2'
