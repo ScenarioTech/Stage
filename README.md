@@ -20,7 +20,7 @@ Then, to build the demo stage enter:
 gulp dev
 ```
 
-This will invoke the development build process. The generated Javascript and CSS files will be uncompressed. If you have a scenario ready to go into production, you should use:
+This will invoke the development build process. The generated Javascript and CSS files will be uncompressed, and they'll have block comments to help guide you through the code, identifying each module and explaining what it does. If you have a scenario ready to go into production, you should use:
 
 ```
 gulp pro
