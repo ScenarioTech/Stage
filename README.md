@@ -47,17 +47,17 @@ Stage names should consist of lowercase letters, digits and underscores, like th
 
 An expression model is a script file with either the .coffee (CoffeeScript) or .js (JavaScript) extension. It contains the expression templates and effects that will be available for use by scenario elements.
 
-Typically, your expression model will include files from the **include/scripts/stage/** directory to provide for its templates and effects. CoffeeScript is recommended, but use Javascript if you like.
+Typically, your expression model will include files from the **include/reference/scripts/** and **include/scripts/stage/** directories to provide for its templates and effects. CoffeeScript is recommended, but use Javascript if you like.
 
 ### A Stylesheet: stage.less
 
-A .less file that will be used to compile the stage's CSS styles. This .less file typically includes files from the **include/styles/stage/** directory.
+A .less file that will be used to compile the stage's CSS styles. This .less file typically includes files from the **include/reference/styles/** and **include/styles/stage/** directories.
 
-## Going Into Production
+### Going Into Production
 
 Once you have generated your production code with "gulp pro" your code is ready for live use. Sync the contents of your **out/** folder with your scenario media CDN of choice.
 
-### Testing
+## Testing
 
 To run the scenario stage test suite in a *nix environment, just run:
 
@@ -65,6 +65,6 @@ To run the scenario stage test suite in a *nix environment, just run:
 ./test.sh
 ```
 
-### Guide to Contents
+## Guide to Contents
 
 The directory **src/** contains each stage's source file directory. These source files typically reference standard modules and other resources that can be found in **include/**. Once built, elements of a scenario stage are written to that stage's directory in **out/**. Mocha/Chai unit tests for the stage system components can be found in **test/**.
