@@ -9,7 +9,7 @@
 
 module.exports =
     template: """
-    <div ng-style="autofit()">
+    <div class="element-inner">
         <!-- hook.head -->
         <div ng-repeat="(emKey, emValue) in entity.aspects.prime.components.media" ng-class="{ 'image-holder' : emValue.subtype === 'images' }">
             <div

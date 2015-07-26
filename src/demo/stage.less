@@ -1,13 +1,14 @@
 /*
  * The first set of includes points to styles in the include/references directory.
- * These reference files group together material from the include/styles directory for easy inclusion by stage designers.
+ * These reference files point to material from the include/styles directory for easy inclusion by stage designers.
  *
 */
 
 @import '../../include/reference/styles/base';
 @import '../../include/reference/styles/skinsets/basic';
-@import '../../include/reference/styles/layout/basic-inset';
-
+@import '../../include/reference/styles/layout/compo/standard';
+@import '../../include/reference/styles/layout/element/basic-film';
+@import '../../include/reference/styles/layout/frame/16x10';
 
 /*
  * The second set of includes point directly into the include/styles directory.
@@ -27,6 +28,8 @@
 
 .scenario-stage-holder {
     background: #000;
+    height: 100%;
+    display: block;
 }
 
 #scenario-stage {
@@ -38,21 +41,24 @@
         fill: none;
     }
 
-    .element-main {
-        .skin-bronze; // the element proper uses the dark "bronze" skin
+    .compo {
+        .stage-layout-compo-standard;
+    
+        .element .element-inner {
+            .stage-layout-frame-16x10;
+        }
 
-        div.image {
-            box-shadow: 0 0 42px #000;
+        .element-main {
+            .stage-layout-element-basic-film;
+            .skin-khaki; // the element uses the light "khaki" skin
+
+            div.image {
+                box-shadow: 0 0 42px #000;
+            }
         }
-        
-        .dialog-holder {
-            .skin-khaki; // the dialog container within the element uses the bright "khaki" skin
-            
-            // border styles and a drop shadow for the dialog holder
-            border-radius: 24px;
-            border-width: 6px;
-            border-style: solid;
-            box-shadow: 4px 4px 0 rgba(64,64,64,0.4);
-        }
+    }
+    
+    .compo.compo-titleCurtain .media-holder {
+        .stage-layout-frame-16x10;
     }
 }

@@ -23,10 +23,10 @@ module.exports = (expression, params) ->
         if params.template
             if params.template.plugins and typeof params.template.plugins.loader is 'function' and typeof params.template.plugins.hooks is 'object'
                 exp.template = params.template.plugins.loader exp.template, params.template.plugins.hooks, params.template.plugins.params
-                
+
             if params.template.meta and typeof params.template.meta.method is 'function'
                 exp.template = params.template.meta.method exp.template, params.template.meta.params
-        
+
         if params.effect
 
             # if there is a meta-effect, use it to wrap the effect
@@ -36,7 +36,7 @@ module.exports = (expression, params) ->
                 if params.effect.plugins
                     if !params.effect.params
                         params.effect.params = {}
-                    
+
                     if !params.effect.plugins.params
                         params.effect.plugins.params = {}
 
@@ -57,15 +57,15 @@ module.exports = (expression, params) ->
     # since the presence of that key is used to determine whether or not the expression is multiplexed
     if expression.template
         processExpression expression
-        
+
     # if there is only one sub-expression for some reason, return it
     else if templateKeys.length is 1
         processExpression expression[templateKeys[0]]
-    
+
     # if a selector function is present in the params, use it
     else if params.selector and typeof params.selector.method is 'function'
         processExpression params.selector.method expression, params.selector.params
-    
+
     # otherwise just grab the first template from the list provided
     else
         processExpression expression[templateKeys[0]]

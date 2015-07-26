@@ -1,1 +1,0 @@
-window.scenarioMedium = require __dirname + "/../../include/scripts/medium/standard1.coffee"

@@ -12,7 +12,7 @@ module.exports = (template, hooks, params) ->
         
     # this list contains the possible IDs for template hooks:
 
-    templateHookIds = [ 'head', 'foot', 'dialogHead', 'dialogFoot' ]    
+    templateHookIds = [ 'head', 'foot', 'dialogHead', 'dialogFoot' ]
     
     # template hooks take the form of an HTML comment containing the hook ID like this:
     # <!-- hook.hookId -->
