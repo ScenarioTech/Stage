@@ -7,81 +7,57 @@
  *
 */
 
-.stage-layout-basic-film {
+.stage-layout-element-basic-film {
+    font-size: 4vmin;
+    line-height: 1.15em;
+    height: 100vh;
+    
     ol {
         list-style-type: none;
     }
-
-    .element {
-        font-size: 1.16em;
-        line-height: 1.4em;
-        height: 100%;
-        
-        .image {
-            background-repeat: no-repeat;
-            background-position: top center;
-        }
-        
-        p {
-            margin: 0 0 0.5em 0;
-        }
-
-        ol li {
-            cursor: pointer;
-            padding: 0 0 0.2em 0;
-        }
+            
+    .image {
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+    
+    p {
+        margin: 0 0 0.5em 0;
     }
 
-    .image-holder div.image {
+    ol li {
+        cursor: pointer;
+        padding: 0 0 0.2em 0;
+    }
+
+    .image-holder {
         height: 67.4%;
-        background-size: 100% auto;
+        
+        div.image {
+            height: 100%;
+            background-size: 100% auto;
+        }
     }
 
     .dialog-holder {
         bottom: 0;
         height: 30%;
         left: 0;
-        position: absolute;
         overflow: hidden; // set overflow to hidden since Perfect Scrollbar is in use
         width: 100%;
         z-index: 500;        
     }
 
     .dialog {
-        padding: 0 0 0 40px;
+        padding: 0 0 0 1em;
         width: 95%;
     }
     
     p {
-        margin: 1.25em 1.25em 0.5em;
+        margin: 0.5em;
     }
     
     ol {
         margin: 0 1.25em 1.25em;
     }
 }
-
-@media (max-width: 800px) and (min-width: 600px) {
-    .stage-layout-basic-film {
-        .image-holder div.image {
-            height: 62%;
-        }
-        
-        .dialog-holder {
-            height: 35%;
-        }
-    }
-}
-
-@media (max-width: 599px) {
-    .stage-layout-basic-film {
-        .image-holder div.image {
-            height: 55%;
-        }
-        
-        .dialog-holder {
-            height: 42%;
-        }
-    }
-}
-

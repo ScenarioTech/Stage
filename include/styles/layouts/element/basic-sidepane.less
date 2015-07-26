@@ -1,47 +1,44 @@
 /*
  * Layout: 
- * Basic Inset
+ * Basic Sidepane
  *
  * A layout that displays cue images as a page-filling background, with the text and interface placed
  * in a window overlaid on that background.
  *
 */
 
-.stage-layout-element-basic-inset {
+.stage-layout-element-basic-sidepane { 
     font-size: 4vmin;
     line-height: 1.15em;
     height: 100%;
-
-    ol {
-        list-style-type: none;
+    
+    .image {
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+    
+    p {
+        margin: 0.5em;
     }
 
-    .element {
-        height: 100%;
-
-        .image {
-            background-repeat: no-repeat;
-            background-position: top center;
-        }
-
-        .element-inner {
-            height: 100vh;
-            position: relative;
-        }
-
-        p {
-            margin: 0 0 0.4em 0;
-        }
-
-        ol li {
+    ol {
+        margin: 0 1.25em 1.25em;
+        list-style-type: none;
+        
+        li {
             cursor: pointer;
             padding: 0 0 0.4em 0;
         }
     }
 
+    .element-inner {
+        height: 100vh;
+        position: relative;
+    }
+
     .image-holder {
         height: 100%;
-
+        
         div.image {
             height: 100%;
             background-size: 100% auto;
@@ -49,27 +46,19 @@
     }
 
     .dialog-holder {
-        height: 32%;
-        bottom: 5%;
-        left: 4%;
+        max-height: 95vh;
+        top: 5%;
+        left: 2%;
         position: absolute;
         overflow: hidden; // set overflow to hidden because Perfect Scrollbar is in use
-        padding: 16px 2%;
-        width: 88%;
-        z-index: 500;   
+        padding: 1em 2%;
+        width: 50%;
+        z-index: 500;
     }
 
     .dialog {
         padding: 8px;
-        height: 100%;
         width: 100%;
-    }
-
-    p {
-        margin: 0.5em;
-    }
-
-    ol {
-        margin: 0 1.25em 1.25em;
+        margin: 0.2em 0 0.1em;
     }
 }

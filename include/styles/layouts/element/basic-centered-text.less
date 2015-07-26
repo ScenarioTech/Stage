@@ -1,0 +1,63 @@
+/*
+ * Layout: 
+ * Basic Centered Text
+ *
+ * A layout that displays narrative text and options centered in the viewpane.
+ *
+ *
+*/
+
+.stage-layout-element-basic-centered-text { 
+    font-size: 4vmin;
+    line-height: 1.15em;
+    height: 100%;
+    
+    .image {
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+    
+    p {
+        margin: 0.5em;
+    }
+
+    ol {
+        margin: 0 1.25em 1.25em;
+        list-style-type: none;
+        
+        li {
+            cursor: pointer;
+            padding: 0 0 0.4em 0;
+        }
+    }
+
+    .element-inner {
+        height: 100vh;
+        position: relative;
+    }
+
+    .image-holder {
+        height: 100%;
+        
+        div.image {
+            height: 100%;
+            background-size: 100% auto;
+        }
+    }
+
+    .dialog-holder {
+        max-height: 70vh;
+        top: 15%;
+        left: 8%;
+        overflow: hidden; // set overflow to hidden because Perfect Scrollbar is in use
+        padding: 1em 2%;
+        width: 84%;
+        z-index: 500;   
+    }
+
+    .dialog {
+        padding: 8px;
+        width: 100%;
+        margin: 10% 0 5%;
+    }
+}

@@ -1,0 +1,27 @@
+/*
+ * Layout: 
+ * Standard Compo
+ *
+ * Standard layout specifications for scenario compositions, setting sizes and relationships for the elements they contain.
+ *
+*/
+
+.stage-layout-compo-standard {
+    height: 100%;
+
+    .media-holder {
+        display: none;
+    }
+
+    .media-holder.image {
+        height: 100%;
+        display: block;
+        position: relative;
+        
+        .image {
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+        }
+    }
+}

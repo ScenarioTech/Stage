@@ -1,0 +1,44 @@
+/*
+ * Frame: 
+ * 16x10
+ *
+ * A centered stage frame with 16x10 proportions.
+ * 
+ *
+*/
+
+.stage-layout-frame-16x10 {
+    width: 160vh; 
+    height: 100vh;
+    margin: 0 auto;
+}
+
+// iOS fixes below
+
+/**
+* iPad with portrait orientation.
+*/
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait){
+    .stage-layout-frame-16x10 {
+        height: 1024px;
+    }
+}
+ 
+/**
+* iPad with landscape orientation.
+*/
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:landscape){
+    .stage-layout-frame-16x10 {
+        height: 768px;
+    }
+}
+ 
+/**
+* iPhone 5
+* You can also target devices with aspect ratio.
+*/
+@media screen and (device-aspect-ratio: 40/71) {
+    .stage-layout-frame-16x10 {
+        height: 500px;
+    }
+}
