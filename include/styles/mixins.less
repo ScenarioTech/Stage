@@ -1,0 +1,29 @@
+/* 
+ * LESS Mixins
+ *
+ * Common functions for LESS
+ *
+*/
+
+.viewportRatio(@x, @y) {
+    width: 100vw;
+    height: @y * 100vw / @x;
+    max-width: @x / @y * 100vh;
+    max-height: 100vh;
+    margin: auto;
+    position: absolute;
+    top:0;bottom:0; /* vertical center */
+    left:0;right:0; /* horizontal center */
+
+    /*@include viewportRatioIosCompatibility01() {
+        height: 1024px;
+    }
+
+    @include viewportRatioIosCompatibility02() {
+        height: 768px;
+    }
+
+    @include viewportRatioIosCompatibility03() {
+        height: 500px;
+    }*/
+}

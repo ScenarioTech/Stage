@@ -5,7 +5,7 @@ module.exports = (effect, params) ->
 
     returnEffect = (effectParams) ->
         transConfig = params.transConfig
-        
+
         transData = @effectParams.data.transitionData
         effectParams.element = @effectParams.element
         effectParams.transData = transData
@@ -24,7 +24,7 @@ module.exports = (effect, params) ->
         transData.curtain.active = false
         transData.time = 0
         
-        refresh = () ->
+        refresh = ->
             transData.time += params.transConfig.updateInterval
             
             if transData.curtain.appeared < 1

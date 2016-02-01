@@ -1,4 +1,4 @@
-# Scenario Stage v. 0.4
+# Scenario Stage Files to Ignore
 
 # All stage source files except demos
 src/*
@@ -7,7 +7,10 @@ src/*
 # All stage output files
 out/*
 
-# Build Files
-node_modules/
+# External software packages
+node_modules/*
+**/node_modules/*
+**/bower_components/*
+include/scripts/vendor/bower_components/*
 
 include/scripts/expression/plugins/loader/effect

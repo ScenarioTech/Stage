@@ -7,19 +7,10 @@
  *
 */
 
-.stage-layout-element-basic-sidepane { 
+.stage-layout-element-basic-sidepane {
     font-size: 4vmin;
     line-height: 1.15em;
     height: 100%;
-    
-    .image {
-        background-repeat: no-repeat;
-        background-position: top center;
-    }
-    
-    p {
-        margin: 0.5em;
-    }
 
     ol {
         margin: 0 1.25em 1.25em;
@@ -31,28 +22,32 @@
         }
     }
 
+    p {
+        margin: 0.5em;
+    }
+
     .element-inner {
-        height: 100vh;
-        position: relative;
+        max-width: 160vh;
+        height: 100%;
     }
 
     .image-holder {
         height: 100%;
-        
+
         div.image {
             height: 100%;
             background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: top center;
         }
     }
 
     .dialog-holder {
-        max-height: 95vh;
         top: 5%;
         left: 2%;
         position: absolute;
-        overflow: hidden; // set overflow to hidden because Perfect Scrollbar is in use
         padding: 1em 2%;
-        width: 50%;
+        width: 42%;
         z-index: 500;
     }
 

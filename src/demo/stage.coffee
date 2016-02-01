@@ -33,7 +33,7 @@ transConfig = require './../../include/scripts/transition/config/standard'
 myBuilder = new builder()
 
 # Generate the stage medium using the expressions included above and a function from the stage medium builder class.
-myBuilder.generateMedium {
+myBuilder.generateMedium
     element_elCurtain:
         expression: curtainExpr
         params:
@@ -73,7 +73,6 @@ myBuilder.generateMedium {
             template:
                 meta:
                     method: commonMetaTemplate
-}
 
 # Add the medium to the window DOM
 myBuilder.loadMedium()

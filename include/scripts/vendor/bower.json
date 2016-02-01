@@ -1,0 +1,26 @@
+{
+  "name": "scenario-stage-vendor-scripts",
+  "version": "0.1",
+  "homepage": "https://github.com/ScenarioTech/StageConstructor",
+  "authors": [
+    "Andrew Sengul <andrew@scenariotech.com>"
+  ],
+  "description": "Frontend for interactive scenarios.",
+  "keywords": [
+    "scenario",
+    "stage",
+    "interactive"
+  ],
+  "license": "Apache",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "helios-audio-mixer": "~0.2.2"
+  }
+}

@@ -8,7 +8,6 @@
 @import '../../include/reference/styles/skinsets/basic';
 @import '../../include/reference/styles/layout/compo/standard';
 @import '../../include/reference/styles/layout/element/basic-film';
-@import '../../include/reference/styles/layout/frame/16x10';
 
 /*
  * The second set of includes point directly into the include/styles directory.
@@ -16,7 +15,7 @@
  *
 */
 
-@import '../../include/styles/typefaces/georgia-basic';
+@import '../../include/styles/typefaces/poly-basic';
 @import '../../include/styles/features/element/dialog/next-indicator-fading-arrow';
 
 /*
@@ -26,14 +25,8 @@
 
 @import '../../include/styles/vendor/perfect-scrollbar';
 
-.scenario-stage-holder {
-    background: #000;
-    height: 100%;
-    display: block;
-}
-
 #scenario-stage {
-    .typeface-georgia-basic; // the stage uses the Georgia font in large type as specified by this type style
+    font-family: polyregular; // the stage uses the Georgia font in large type as specified by this type style
 
     // stage-specific styles for the SVG arrow glyph
     svg.feature-glyphs path#next-arrow {
@@ -42,15 +35,16 @@
     }
 
     .compo {
+        .skin-khaki; // the element uses the light "khaki" skin
         .stage-layout-compo-standard;
-    
-        .element .element-inner {
-            .stage-layout-frame-16x10;
+
+        .element-elCurtain {
+            .viewportRatio(1.6, 1);
         }
 
         .element-main {
+            .skin-khaki; // "khaki" skin is included here too to ensure the background color will be continuous when scrolling down
             .stage-layout-element-basic-film;
-            .skin-khaki; // the element uses the light "khaki" skin
 
             div.image {
                 box-shadow: 0 0 42px #000;
@@ -58,7 +52,7 @@
         }
     }
     
-    .compo.compo-titleCurtain .media-holder {
-        .stage-layout-frame-16x10;
+    .compo.compo-curtain {
+        background: #000;
     }
 }

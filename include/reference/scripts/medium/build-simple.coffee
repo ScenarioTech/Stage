@@ -7,9 +7,9 @@
 ###
 
 class builder
-    constructor: () ->
+    constructor: ->
         @medium = {}
-    
+
         @expPrep = require './../../../../include/scripts/expression/preprocessor/standard'
         @templatePluginLoader = require './../../../../include/scripts/expression/plugins/loader/template/standard'
         @effectPluginLoader = require './../../../../include/scripts/expression/plugins/loader/effect/standard'
@@ -21,10 +21,15 @@ class builder
 
             if expContent.params.effect and expContent.params.effect.plugins
                 expContent.params.effect.plugins.loader = @effectPluginLoader
-            
-            @medium[expId] = @expPrep expContent.expression, expContent.params
-            
-    loadMedium: () ->
+
+            # copy the base expression template with $.extend so it can be used in its original form by subsequent expressions
+            @medium[expId] = @expPrep $.extend(true, {}, expContent.expression), expContent.params
+
+    loadMedium: (callback) ->
         window.scenarioMedium = @medium
+        
+        if callback
+            callback()
 
 module.exports = builder
+ 

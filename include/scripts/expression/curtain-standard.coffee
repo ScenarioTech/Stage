@@ -128,7 +128,7 @@ module.exports =
                       }
                     }                
                 </style>
-                <div style="width: 100%; height: 100%">
+                <div class="element-inner">
                     <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         x="0px"
@@ -137,20 +137,21 @@ module.exports =
                         height="1050"
                         style="display: none;"
                     >
-                        <defs>
+                      <defs>
                             <filter id="loadingTextHighlightFilter"><feGaussianBlur id="gbFilter01" stdDeviation="8" /></filter>
-                        </defs> 
-                        <g class="loading-band-outer-holder" style="transform: translate(840.5px, 525.5px)">
-                            <g class="loading-band-inner-holder go-clockwise">
-                                <circle class="loading-band"
-                                    cx="840.5" 
-                                    cy="525.5" 
-                                    r="400" 
-                                    style="fill:none;stroke:#ffffff;stroke-width:64;stroke-dasharray:2550;stroke-dashoffset:2549.99;transform: translate(-840.5px, -525.5px)" 
-                                    id="circle4" 
-                                />
-                            </g>
-                        </g>
+                      </defs> 
+                      <g id="curtain-holder">
+                      <g class="loading-band-outer-holder" style="transform: translate(840.5px, 525.5px)">
+                          <g class="loading-band-inner-holder go-clockwise">
+                              <circle class="loading-band"
+                                  cx="840.5" 
+                                  cy="525.5" 
+                                  r="400" 
+                                  style="fill:none;stroke:#ffffff;stroke-width:64;stroke-dasharray:2550;stroke-dashoffset:2549.99;transform: translate(-840.5px, -525.5px)" 
+                                  id="circle4" 
+                              />
+                          </g>
+                      </g>
                       <circle class="outer-band"
                          id="circle3016"
                          style="fill:none;stroke:#ffffff;stroke-width:8"
@@ -252,6 +253,7 @@ module.exports =
                            d="m 943.31909,645.52026 -19.88896,0 0,-39.87887 19.88896,0 0,6.00707 -12.8723,0 0,9.99496 9.23777,0 0,6.00707 -9.23777,0 0,11.8627 12.8723,0 0,6.00707" 
                            id="path8197" /> 
                       </g> 
+                      </g>
                     </svg>
                 </div>
             """
@@ -259,11 +261,13 @@ module.exports =
         effect:
             generate: (params) ->
                 fx = (fxParams) ->
+                    fxParams.element.find("#curtain-holder").attr("transform", "scale(" + ($( window ).height() / 1050) + "," + ($( window ).height() / 1050) + ")")
+                    #console.log "scale(" + ($( window ).height() / 1050) + "," + ($( window ).height() / 1050) + ")"
                     if params and params.hooks and typeof params.hooks.start is 'function'
                         params.hooks.start fxParams
 
                     fxParams.element.find("svg").css 'display', 'block'
-                    
+
                     # animate the drawn portion of the loading band proportionate to the portion of loading complete
                     fxParams.element.find("circle.loading-band").css 'stroke-dashoffset', (2549.99 - (2549.99 * fxParams.transData.portion))
 
@@ -274,7 +278,7 @@ module.exports =
                     document.getElementById("gbFilter01").setAttribute 'stdDeviation', (12 - (12 * fxParams.transData.portion ))
                     if fxParams.transData.completed >= fxParams.transData.total
                         fxParams.element.find("g.text-complete").css 'display', 'block'
-                    
+
                     fxParams.element.find("svg").css 'opacity', (fxParams.transData.curtain.appeared - fxParams.transData.curtain.risen)
 
                     if params and params.hooks and typeof params.hooks.end is 'function'
